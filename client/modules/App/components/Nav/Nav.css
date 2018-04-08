@@ -1,0 +1,20 @@
+.site-nav {
+    line-height: 50px;
+    padding-left: 5px;
+    display: flex;
+  }
+
+  .nav-link {
+    display: block;
+    height: 50px;
+    width: 100px;
+    line-height: 50px;
+    text-align: center;
+    color: #f4f4f4;
+    transition: .2s ease;
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
