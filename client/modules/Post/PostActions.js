@@ -25,3 +25,57 @@ export function addPostRequest(post) {
     }).then(res => dispatch(addPost(res.post)));
   };
 }
+
+export function addPosts(posts) {
+  return {
+    type: ADD_POSTS,
+    posts,
+  };
+}
+
+export function fetchPosts() {
+  return (dispatch) => {
+    return callApi('posts').then(res => {
+      dispatch(addPosts(res.posts));
+    });
+  };
+}
+
+export function fetchPost(cuid) {
+  return (dispatch) => {
+    return callApi(`posts/${cuid}`).then(res => dispatch(addPost(res.post)));
+  };
+}
+
+export function deletePost(cuid) {
+  return {
+    type: DELETE_POST,
+    cuid,
+  };
+}
+
+export function deletePostRequest(cuid) {
+  return (dispatch) => {
+    return callApi(`posts/${cuid}`, 'delete').then(() => dispatch(deletePost(cuid)));
+  };
+}
+
+export function editPost(cuid, post) {
+  return {
+    type: EDIT_POST,
+    cuid,
+    post,
+  };
+}
+
+export function editPostRequest(cuid, post) {
+  return (dispatch) => {
+    return callApi(`posts/${cuid}`, 'put', {
+      post: {
+        name: post.name,
+        title: post.title,
+        content: post.content,
+      },
+    }).then(() => dispatch(editPost(cuid, post)));
+  };
+}
