@@ -20,10 +20,10 @@ const PostReducer = (state = initialState, action) => {
         data: state.data.filter(post => post.cuid !== action.cuid),
       };
 
-    case EDIT_POST :
-      return {
-        data: state.data.map(post => { return post.cuid === action.cuid ? Object.assign({}, post, action.post) : post }),
-      };
+      case EDIT_POST:
+            return {
+              data: state.data.map(post => { return post.cuid === action.cuid ? Object.assign({}, post, action.post) : post; }),
+            };
 
     default:
       return state;
