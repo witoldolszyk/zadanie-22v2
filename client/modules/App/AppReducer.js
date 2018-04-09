@@ -24,3 +24,11 @@ const AppReducer = (state = initialState, action) => {
       return state;
   }
 };
+/ Get showAddPost
+export const getShowAddPost = state => state.app.showAddPost;
+
+// Get ShowEditPost
+export const getShowEditPost = state => state.app.showEditPost;
+
+// Export Reducer
+export default AppReducer;
